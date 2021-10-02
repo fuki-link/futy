@@ -13,8 +13,9 @@ export class UrlsService {
   }
 
   async createShortUrl(longUrl: string, code: string): Promise<Url> {
-    const shortUrl = `http://localhost:3000/${code}`;
-    const url = this.repo.create({ longUrl, code, shortUrl });
+    const slugCode = code.replace(/\s+/g, '-');
+    const shortUrl = `http://localhost:3000/${slugCode}`;
+    const url = this.repo.create({ longUrl, code: slugCode, shortUrl });
 
     return await this.repo.save(url);
   }

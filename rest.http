@@ -1,0 +1,7 @@
+POST http://localhost:3001/urls/shortener
+Content-Type: application/json
+
+{
+  "longUrl": "http://www.google.com dfd",
+  "code": "paaaewew"
+}

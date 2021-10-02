@@ -8,6 +8,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   app.useStaticAssets(join(__dirname, '..', 'client'));
   app.setViewEngine('html');
+  app.enableCors();
   app.useGlobalPipes(new ValidationPipe({ whitelist: true }));
 
   await app.listen(3000);
